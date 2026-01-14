@@ -1,5 +1,7 @@
-node_modules/
+.vscode/
 images/
+node_modules/
+prisma/migrations/
 
 .env
 
