@@ -1,0 +1,60 @@
+### Register Restaurant
+POST http://localhost:8000/admin/restaurants
+Content-Type: application/json
+
+{
+  "name": "La Boucherie",
+  "ownerName": "Jean-Pierre",
+  "foodTypes": ["Pizza", "Burger", "French"],
+  "postalcode": "75001",
+  "address": "Rue de la Paix",
+  "phone": "0612345678",
+  "email": "jean-pierre@gmail.com",
+  "password": "123456"
+}
+
+### Get Restaurants
+GET http://localhost:8000/admin/restaurants
+
+
+### Get Restaurant By ID
+GET http://localhost:8000/admin/restaurants/5d3a47bd-2dbb-4c22-8467-7929de800006
+
+
+### Login
+POST http://localhost:8000/restaurant/login
+Content-Type: application/json
+
+{
+  "email": "lepetitbistro@gmail.com",
+  "password": "qwerty"
+}
+
+###
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNjOWVlZDFlLTI2NTQtNDljOS1iNjhlLWE5OGE3MTNkNGVkZSIsIm5hbWUiOiJMZSBQZXRpdCBCaXN0cm8iLCJvd25lck5hbWUiOiJJc2FiZWxsZSBEdXBvbnQiLCJlbWFpbCI6ImxlcGV0aXRiaXN0cm9AZ21haWwuY29tIiwiZm9vZFR5cGVzIjpbIkZyZW5jaCIsIlNlYWZvb2QiXSwiaWF0IjoxNzY4MzEwODQ0LCJleHAiOjE3NjgzOTcyNDR9.qDzzvmLz9a8Q4Jr7Y6ygby5vstFtp1zAHXLpkDWhbEo
+
+### Get Profile
+GET http://localhost:8000/restaurant/profile
+Authorization: Bearer {{token}}
+
+### update prfile
+PATCH http://localhost:8000/restaurant/profile
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Le Petit Bistro",
+  "ownerName": "Bernard Dupont",
+  "foodTypes": [
+    "French",
+    "Seafood"
+  ],
+  "postalcode": "75001",
+  "address": "10 Rue de la Roquette",
+  "phone": "01 45 67 89 10"
+}
+
+
+### Update Service Availability
+PATCH http://localhost:8000/restaurant/profile/service-available
+Authorization: Bearer {{token}}
